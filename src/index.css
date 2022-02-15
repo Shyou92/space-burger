@@ -2,5 +2,3 @@
 @import 'shared/vendor/normalize.css';
 
 @import './shared/vendor/fonts.css';
-
-@import './app/index.module.scss';

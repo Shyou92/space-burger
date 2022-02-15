@@ -4,10 +4,19 @@
   @media screen and (max-width: #{$breakPoint + px}) {
     $addSize: $pcSize - $mobSize;
     $maxWidth: $maxWidth - $minWidth;
-    #{$value}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    #{$value}: calc(
+      #{$mobSize + px} + #{$addSize} *
+        ((100vw - #{$minWidth + px}) / #{$maxWidth})
+    );
   }
 }
-@mixin adaptivePadding($value, $topBottomPC, $rightLeftPC, $topBottomMB, $rightLeftMB) {
+@mixin adaptivePadding(
+  $value,
+  $topBottomPC,
+  $rightLeftPC,
+  $topBottomMB,
+  $rightLeftMB
+) {
   #{$value}-top: #{$topBottomPC + px};
   #{$value}-bottom: #{$topBottomPC + px};
   #{$value}-right: #{$rightLeftPC + px};
@@ -17,13 +26,25 @@
     $addSizeTopBottom: $topBottomPC - $topBottomMB;
     $addSizeRightLeft: $rightLeftPC - $rightLeftMB;
     $maxWidth: $maxWidth - $minWidth;
-    #{$value}-top: calc(#{$topBottomMB + px} + #{$addSizeTopBottom} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
-    #{$value}-bottom: calc(#{$topBottomMB + px} + #{$addSizeTopBottom} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
-    #{$value}-right: calc(#{$rightLeftMB + px} + #{$addSizeRightLeft} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
-    #{$value}-left: calc(#{$rightLeftMB + px} + #{$addSizeRightLeft} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    #{$value}-top: calc(
+      #{$topBottomMB + px} + #{$addSizeTopBottom} *
+        ((100vw - #{$minWidth + px}) / #{$maxWidth})
+    );
+    #{$value}-bottom: calc(
+      #{$topBottomMB + px} + #{$addSizeTopBottom} *
+        ((100vw - #{$minWidth + px}) / #{$maxWidth})
+    );
+    #{$value}-right: calc(
+      #{$rightLeftMB + px} + #{$addSizeRightLeft} *
+        ((100vw - #{$minWidth + px}) / #{$maxWidth})
+    );
+    #{$value}-left: calc(
+      #{$rightLeftMB + px} + #{$addSizeRightLeft} *
+        ((100vw - #{$minWidth + px}) / #{$maxWidth})
+    );
   }
 }
 
-$maxWidth: 1592;
+$maxWidth: 1240;
 $minWidth: 320;
 $breakPoint: $maxWidth - 0.2;

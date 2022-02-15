@@ -1,0 +1,6 @@
+@import '../shared/variables.scss';
+
+.app {
+  background-color: $backgroundColor;
+  @extend %jetBrainsMono;
+}

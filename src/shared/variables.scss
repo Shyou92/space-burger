@@ -1,0 +1,24 @@
+@import './mixins/mixins.scss';
+
+$textColor: #f2f2f3;
+$backgroundColor: #131316;
+
+%jetBrainsMono {
+  font-family: JetBrains Mono, Arial sans-serif;
+  font-style: normal;
+}
+
+%iceland {
+  font-family: Iceland, Arial sans-serif;
+  font-style: normal;
+}
+
+%fz-36-40-28-32 {
+  @include adaptive(font-size, 36, 28);
+  @include adaptive(line-height, 40, 32);
+}
+
+%fz-16-24-14-20 {
+  @include adaptive(font-size, 16, 14);
+  @include adaptive(line-height, 24, 20);
+}

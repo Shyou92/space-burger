@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.title {
+  @extend %fz-36-40-28-32;
+  color: $textColor;
+  width: 100%;
+  font-weight: 700;
+  @include adaptive(margin-bottom, 20, 8);
+}
