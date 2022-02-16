@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './container.module.scss';
 
 type Props = {
-  children: React.ReactNode;
+  children: any;
 };
 
 const Container = (props: Props) => {

@@ -1,0 +1,165 @@
+@import '../../../shared/variables.scss';
+
+%headerItem {
+  position: relative;
+  color: $textColor;
+  @extend %fz-16-24-14-20;
+  text-decoration: none;
+  text-align: center;
+  max-width: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.7s;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    // @include adaptive(top, 12, -20);
+    @include adaptive(left, -28, -20);
+  }
+}
+
+.header {
+  background-color: #1c1c21;
+  @include adaptivePadding(padding, 40, 320, 15, 15);
+}
+
+.sectionDesktop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sectionMobile {
+  display: none;
+}
+
+.sectionPanel {
+  display: flex;
+  justify-content: space-between;
+  @include adaptive(width, 320, 170);
+  @include adaptivePadding(padding, 16, 0, 4, 0);
+}
+
+.construct {
+  @extend %headerItem;
+  &::before {
+    background-image: url('../../../shared/images/construct.svg');
+  }
+}
+
+.feed {
+  @extend %headerItem;
+  color: #8585ad;
+  &::before {
+    background-image: url('../../../shared/images/feed.svg');
+  }
+}
+
+.logo {
+  outline: none;
+  @include adaptive(width, 290, 100);
+}
+
+.account {
+  @extend %headerItem;
+  color: #8585ad;
+  min-width: 128px;
+  &::before {
+    background-image: url('../../../shared/images/account.svg');
+    @include adaptive(left, -28, -10);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  %headerItem {
+    &::before {
+      @include adaptive(left, -11, -11);
+    }
+  }
+
+  %_burgerElement {
+    @include adaptive(height, 4, 2);
+    background-color: $textColor;
+    transition: all linear 0.3s;
+  }
+
+  .sectionDesktop {
+    display: none;
+  }
+
+  .sectionMobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .burger {
+    @include adaptive(width, 24, 24);
+    @include adaptive(height, 24, 24);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: none;
+    overflow: hidden;
+    color: $textColor;
+
+    &:hover {
+      transition: 0.5s;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    span {
+      width: 100%;
+      @extend %_burgerElement;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      @extend %_burgerElement;
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      @extend %_burgerElement;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.active {
+      span {
+        // opacity: 0;
+        transform: scale(0) translateX(100%);
+      }
+
+      &::before {
+        top: 50%;
+        transform: rotate(45deg) translateY(-50%);
+      }
+
+      &::after {
+        top: 50%;
+        transform: rotate(-45deg) translateY(-50%);
+      }
+    }
+  }
+}
