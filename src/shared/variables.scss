@@ -3,6 +3,11 @@
 $textColor: #f2f2f3;
 $backgroundColor: #131316;
 
+%fdcolumn {
+  display: flex;
+  flex-direction: column;
+}
+
 %jetBrainsMono {
   font-family: JetBrains Mono, Arial sans-serif;
   font-style: normal;

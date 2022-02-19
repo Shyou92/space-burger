@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 import Logo from 'shared/images/logo.svg';
 import LogoMobile from 'shared/images/logoMobile.svg';
+import Construct from 'shared/images/construct.svg';
+import Feed from 'shared/images/feed.svg';
+import Account from 'shared/images/account.svg';
+import Navbar from './navbar/navbar';
+import Navlink from 'shared/ui/Link/Link';
+import { Link } from 'react-router-dom';
 
 type Props = {
   onToggle: any;
@@ -14,21 +20,13 @@ const Header = (props: Props) => {
     <section className={styles.header}>
       <div className={styles.sectionDesktop}>
         <div className={styles.sectionPanel}>
-          <Link to='/construct' className={styles.construct}>
-            Конструктор
-          </Link>
-          <Link to='/feed' className={styles.feed}>
-            Лента заказов
-          </Link>
+          <Navlink to='/construct' src={Construct} text='Конструктор' />
+          <Navlink to='/feed' src={Feed} text='Лента&nbsp;заказов' />
         </div>
         <Link to='/'>
           <img src={Logo} alt='logo' className={styles.logo} />
         </Link>
-        {/* <div className={styles.sectionPanel}> */}
-        <Link to='/account' className={styles.account}>
-          Личный кабинет
-        </Link>
-        {/* </div> */}
+        <Navlink to='/account' src={Account} text='Личный кабинет' />
       </div>
       <div className={styles.sectionMobile}>
         <Link to='/'>
@@ -46,6 +44,7 @@ const Header = (props: Props) => {
         >
           <span></span>
         </button>
+        <Navbar />
       </div>
     </section>
   );

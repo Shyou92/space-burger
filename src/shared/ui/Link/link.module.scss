@@ -1,0 +1,58 @@
+@import '../../variables.scss';
+
+%headerItem {
+  position: relative;
+  color: $textColor;
+  @extend %fz-16-24-14-20;
+  text-decoration: none;
+  text-align: start;
+  display: flex;
+  min-width: 150px;
+  justify-content: center;
+  align-items: center;
+  @include adaptivePadding(padding, 20, 16, 5, 4);
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.7s;
+  }
+}
+
+.construct {
+  @extend %headerItem;
+}
+
+.linkImage {
+  width: 24px;
+  height: 24px;
+  @include adaptive(margin-right, 8, 2);
+}
+
+.feed {
+  @extend %headerItem;
+  color: #8585ad;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.7s;
+  }
+}
+
+.account {
+  @extend %headerItem;
+  color: #8585ad;
+  min-width: 128px;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.7s;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  %headerItem {
+    &::before {
+      @include adaptive(left, -11, -11);
+    }
+  }
+}

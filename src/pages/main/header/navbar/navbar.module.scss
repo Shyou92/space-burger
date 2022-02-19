@@ -1,0 +1,45 @@
+@import 'shared/variables.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  &.active {
+    left: 0;
+  }
+}
+.nav {
+  @include adaptive(width, 566, 320);
+  @include adaptivePadding(padding, 48, 0, 20, 0);
+  background-color: $backgroundColor;
+  color: $textColor;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  letter-spacing: 0.05em;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(100%);
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.navbarList {
+  @extend %fdcolumn;
+}
+
+.navbarSubList {
+  @extend %fdcolumn;
+}

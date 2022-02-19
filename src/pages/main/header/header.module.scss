@@ -1,34 +1,9 @@
 @import '../../../shared/variables.scss';
 
-%headerItem {
-  position: relative;
-  color: $textColor;
-  @extend %fz-16-24-14-20;
-  text-decoration: none;
-  text-align: center;
-  max-width: 135px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    opacity: 0.5;
-    transition: 0.7s;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    // @include adaptive(top, 12, -20);
-    @include adaptive(left, -28, -20);
-  }
-}
-
 .header {
   background-color: #1c1c21;
-  @include adaptivePadding(padding, 40, 320, 15, 15);
+  max-width: 1260px;
+  margin: 0 auto;
 }
 
 .sectionDesktop {
@@ -43,51 +18,31 @@
 .sectionPanel {
   display: flex;
   justify-content: space-between;
-  @include adaptive(width, 320, 170);
-  @include adaptivePadding(padding, 16, 0, 4, 0);
-}
-
-.construct {
-  @extend %headerItem;
-  &::before {
-    background-image: url('../../../shared/images/construct.svg');
-  }
-}
-
-.feed {
-  @extend %headerItem;
-  color: #8585ad;
-  &::before {
-    background-image: url('../../../shared/images/feed.svg');
-  }
+  @include adaptive(width, 380, 170);
 }
 
 .logo {
   outline: none;
+  width: 100%;
+  height: 100%;
+  @include adaptive(padding-top, 5, 10);
   @include adaptive(width, 290, 100);
-}
 
-.account {
-  @extend %headerItem;
-  color: #8585ad;
-  min-width: 128px;
-  &::before {
-    background-image: url('../../../shared/images/account.svg');
-    @include adaptive(left, -28, -10);
+  &:hover {
+    opacity: 0.5;
+    transition: 0.7s;
   }
 }
 
 @media screen and (max-width: 768px) {
-  %headerItem {
-    &::before {
-      @include adaptive(left, -11, -11);
-    }
-  }
-
   %_burgerElement {
     @include adaptive(height, 4, 2);
     background-color: $textColor;
     transition: all linear 0.3s;
+  }
+
+  .header {
+    @include adaptivePadding(padding, 40, 100, 15, 15);
   }
 
   .sectionDesktop {
